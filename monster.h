@@ -31,8 +31,8 @@ monsterList_t* creationListM();
 /// @brief finds the index of particular monster in monster_list
 /// @param monster 
 /// @param monster_list 
-/// @return index of monser
-int index(monster_t* monster, monsterList_t monster_list);
+/// @return index of monster
+int index(monster_t* monster, monsterList_t* monster_list);
 
 /// @brief finds if there is monster with same coords
 /// @param monster 
@@ -47,10 +47,10 @@ bool isMstInCell(monster_t* monster, monsterList_t* monster_list);
 /// @return 1 if creation succeeded, 0 sinon
 bool addMst(monsterList_t* monster_list, int p_pos_x, int p_pos_y);
 
-/// @brief deletes monster from the list
+/// @brief removes monster from the list
 /// @param monster 
 /// @param monster_list 
-void deleteMst(monster_t* monster, monsterList_t* monster_list);
+void rmvMst(monster_t* monster, monsterList_t* monster_list);
 
 /// @brief їбу що це взагалі
 /// @param M 
