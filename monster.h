@@ -28,6 +28,12 @@ typedef struct monsterList
 /// @return pointer to the list of monsters
 monsterList_t* creationListM();
 
+/// @brief finds the index of particular monster in monster_list
+/// @param monster 
+/// @param monster_list 
+/// @return index of monser
+int index(monster_t* monster, monsterList_t monster_list);
+
 /// @brief finds if there is monster with same coords
 /// @param monster 
 /// @param monster_list 

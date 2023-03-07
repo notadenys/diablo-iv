@@ -19,6 +19,21 @@ monsterList_t* creationListM()
     return m;
 }
 
+/// @brief finds the index of particular monster in monster_list
+/// @param monster 
+/// @param monster_list 
+/// @return index of monser
+int index(monster_t* monster, monsterList_t* monster_list)
+{
+    for(size_t i = 0; i < monster_list->nbMst; i++)
+    {
+        if(monster_list->listM[i] == monster)
+        {
+            return i;
+        }
+    }
+}
+
 /// @brief finds if there is monster with same coords
 /// @param monster 
 /// @param monster_list 
