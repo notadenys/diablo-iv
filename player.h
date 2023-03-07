@@ -25,7 +25,7 @@ int replacement(player_t* j);
 player_t* creationPlayer(int pos_x, int pos_y);
 
 /// @brief      output information for testing.
-/// @param j    string with required data.
+/// @param j    player pointer.
 /// @return     string with data.
 char* toStringPl(player_t* j);
 
