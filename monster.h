@@ -8,6 +8,8 @@
 #define MONSTER_H
 
 #include "const.h"
+#include <stdbool.h>
+
 
 /// @brief monster class
 typedef struct monster
