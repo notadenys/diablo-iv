@@ -1,8 +1,6 @@
-/**
- * \file monster.h
- * \author Denys SHCHERBA
- * \brief Module that defines monster and monsterList class, its metods and parameters
-*/
+/// @file       monster.h
+/// @author     Denys SHCHERBA, Ivan OSADTSIV.
+/// @brief      Module that defines monster and monsterList class, its metods and parameters
 
 #ifndef MONSTER_H
 #define MONSTER_H

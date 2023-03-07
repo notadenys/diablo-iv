@@ -1,6 +1,6 @@
-/// @file const.h
-/// @author Denys SHCHERBA, Ivan OSADTSIV
-/// @brief Defines all constants
+/// @file       const.h
+/// @author     Denys SHCHERBA, Ivan OSADTSIV
+/// @brief      Defines all constants
 
 #ifndef CONST_H
 #define CONST_H

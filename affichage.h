@@ -1,8 +1,6 @@
-/**
- * \file affichage.h
- * \author Denys SHCHERBA
- * \brief Module that defines the function that prints game field
-*/
+/// @file       affichage.h
+/// @author     Denys SHCHERBA, Ivan OSADTSIV.
+/// @brief      Module that defines the function that prints game field
 
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H

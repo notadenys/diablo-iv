@@ -1,6 +1,6 @@
-/// @file affichage.h
-/// @author Denys SHCHERBA, Ivan OSADTSIV
-/// @brief Module that defines monster and monsterList class, its metods and parameters
+/// @file       affichage.h
+/// @author     Denys SHCHERBA, Ivan OSADTSIV
+/// @brief      Module that defines monster and monsterList class, its metods and parameters
 
 #include "const.h"
 #include "monster.h"
