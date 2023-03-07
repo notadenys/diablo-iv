@@ -22,7 +22,7 @@ monsterList_t* creationListM()
 /// @brief finds the index of particular monster in monster_list
 /// @param monster 
 /// @param monster_list 
-/// @return index of monster, else -1 (may cause crash)
+/// @return index of monster, else -1
 int index(monster_t* monster, monsterList_t* monster_list)
 {
     for(size_t i = 0; i < monster_list->nbMst; i++)
@@ -80,11 +80,19 @@ bool addMst(monsterList_t* monster_list, int p_pos_x, int p_pos_y)
 /// @param monster_list 
 void rmvMst(monster_t* monster, monsterList_t* monster_list)
 {
-    for(size_t i = index(monster, monster_list); i < monster_list->nbMst; i++)
+    int indexToRemove = index(monster, monster_list);
+    if(indexToRemove == -1)
     {
-        monster_list->listM[i] = monster_list->listM[i+1];
+        printf("NoMonsterError: there is no such monster.");
     }
-    --(monster_list->nbMst);
+    else 
+    {
+        for(size_t i = indexToRemove; i < monster_list->nbMst; i++)
+        {
+            monster_list->listM[i] = monster_list->listM[i+1];
+        }
+        --(monster_list->nbMst);
+    }
 }
 
 /// @brief їбу що це взагалі
