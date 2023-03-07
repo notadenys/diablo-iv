@@ -79,7 +79,11 @@ bool addMst(monsterList_t* monster_list, int p_pos_x, int p_pos_y)
 /// @param monster_list 
 void deleteMst(monster_t* monster, monsterList_t* monster_list)
 {
-    
+    for(size_t i = index(monster, monster_list); i < monster_list->nbMst; i++)
+    {
+        monster_list->listM[i] = monster_list->listM[i+1];
+    }
+    --(monster_list->nbMst);
 }
 
 /// @brief їбу що це взагалі
