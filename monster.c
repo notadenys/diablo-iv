@@ -21,13 +21,13 @@ monsterList_t* creationListM()
 
 /// @brief finds if there is monster with same coords
 /// @param monster 
-/// @param monsterList 
+/// @param monster_list 
 /// @return 1 if there is a monster with same coords, 0 sinon
-bool isMstInCell(monster_t* monster, monsterList_t* monsterList)
+bool isMstInCell(monster_t* monster, monsterList_t* monster_list)
 {
-    for(size_t index = 0; index < monsterList->nbMst; index++)
+    for(size_t index = 0; index < monster_list->nbMst; index++)
     {
-        if ((monsterList->listM[index]->pos_x == monster->pos_x) || (monsterList->listM[index]->pos_y == monster->pos_y))
+        if ((monster_list->listM[index]->pos_x == monster->pos_x) && (monster_list->listM[index]->pos_y == monster->pos_y))
         {
             return 1;
         }
@@ -36,23 +36,36 @@ bool isMstInCell(monster_t* monster, monsterList_t* monsterList)
 }
 
 /// @brief adds a new monster to the list
-/// @param monsterList 
+/// @param monster_list 
 /// @param p_pos_x
 /// @param p_pos_y 
 /// @return 1 if creation succeeded, 0 sinon
-bool addMst(monsterList_t* monsterList, int p_pos_x, int p_pos_y)
+bool addMst(monsterList_t* monster_list, int p_pos_x, int p_pos_y)
 {
-    if (monsterList->nbMst < TMAP*TMAP)
+    if (monster_list->nbMst < TMAP*TMAP)
     {
-        monsterList->listM[monsterList->nbMst] = malloc(sizeof(monster_t));
-        monsterList->listM[monsterList->nbMst]->HP = HPMAX;
+        monster_list->listM[monster_list->nbMst] = malloc(sizeof(monster_t));
+        monster_list->listM[monster_list->nbMst]->HP = HPMAX;
+        
+        srand(time(0));
+        monster_list->listM[monster_list->nbMst]->pos_x = rand() % TMAP;
+        monster_list->listM[monster_list->nbMst]->pos_y = rand() % TMAP;
+        while(isMstInCell(monster_list->listM[monster_list->nbMst], monster_list))
+        {
+            monster_list->listM[monster_list->nbMst]->pos_x = rand() % TMAP;
+            monster_list->listM[monster_list->nbMst]->pos_y = rand() % TMAP;
+        }
+        ++(monster_list->nbMst);
     }
 }
 
 /// @brief deletes monster from the list
 /// @param monster 
-/// @param monsterList 
-void deleteMst(monster_t* monster, monsterList_t* monsterList);
+/// @param monster_list 
+void deleteMst(monster_t* monster, monsterList_t* monster_list)
+{
+    
+}
 
 /// @brief їбу що це взагалі
 /// @param M 
