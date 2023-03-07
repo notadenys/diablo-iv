@@ -26,7 +26,7 @@ player_t* creationPlayer(int pos_x, int pos_y);
 
 /// @brief      output information for testing.
 /// @param j    string with required data.
-/// @return     string \a j.
+/// @return     string with data.
 char* toStringPl(player_t* j);
 
 #endif
