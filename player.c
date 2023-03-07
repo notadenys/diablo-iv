@@ -17,9 +17,9 @@ int replacement (player_t* j)
 {
     char choise;
     
-    printf ("Choose direction of next move : ");
+    printf ("\nChoose direction of next move : ");
     scanf ("%1c", &choise);
-    if (&choise == 'w') 
+    if (choise == 'w') 
     {
         if (j->pos_y + 1 <= TMAP) 
         {
@@ -32,7 +32,7 @@ int replacement (player_t* j)
             return 0;
         }
     } 
-    else if (&choise == 's') 
+    else if (choise == 's') 
     {
         if (j->pos_y - 1 >= 0) 
         {
@@ -45,7 +45,7 @@ int replacement (player_t* j)
             return 0;
         }
     } 
-    else if (&choise == 'd') 
+    else if (choise == 'd') 
     {
         if (j->pos_x + 1 <= TMAP) 
         {
@@ -58,7 +58,7 @@ int replacement (player_t* j)
             return 0;
         }
     } 
-    else if (&choise == 'a') 
+    else if (choise == 'a') 
     {
         if (j->pos_x - 1 >= 0) 
         {
@@ -81,11 +81,11 @@ int replacement (player_t* j)
 /// @param pos_x    position of player in the X-axis.
 /// @param pos_y    position of player in the Y-axis.
 /// @return         pointer to the new player.
-player_t* creationPlayer (int pos_x, int pos_y) 
+player_t* createPlayer (int pos_x, int pos_y) 
 {
     player_t * j = malloc (sizeof (player_t));
-    j->pos_x = 5;
-    j->pos_y = 5;
+    j->pos_x = pos_x;
+    j->pos_y = pos_y;
 
     return j;
 }
@@ -96,11 +96,19 @@ player_t* creationPlayer (int pos_x, int pos_y)
 char* toStringPl(player_t* j)
 {
     char *message;
+    char pos_x_ch[2];
+    char pos_y_ch[2];
+
+    sprintf(pos_x_ch, "%d", j->pos_x);
+    sprintf(pos_y_ch, "%d", j->pos_y);
+
     message = (char *) malloc (10);
-    strcpy (message, "X :");
-    strcat (message, j->pos_x);
-    strcpy (message, "Y :");
-    strcat (message, j->pos_y);
+    free (message);
+    strcpy (message, "X:");
+    strcat (message, pos_x_ch);
+    strcat (message, " ");
+    strcat (message, "Y:");
+    strcat (message, pos_y_ch);
 
     return message;
 }
