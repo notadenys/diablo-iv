@@ -22,7 +22,7 @@ int replacement(player_t* j);
 /// @param pos_x    position of player in the X-axis.
 /// @param pos_y    position of player in the Y-axis.
 /// @return         pointer to the new player.
-player_t* creationPlayer(int pos_x, int pos_y);
+player_t* createPlayer(int pos_x, int pos_y);
 
 /// @brief      output information for testing.
 /// @param j    player pointer.
