@@ -41,7 +41,7 @@ int index(monster_t* monster, monsterList_t* monster_list);
 bool isMstInCell(monster_t* monster, monsterList_t* monster_list);
 
 /// @brief adds a new monster to the list
-/// @param listM 
+/// @param monster_list 
 /// @param p_pos_x 
 /// @param p_pos_y 
 /// @return 1 if creation succeeded, 0 sinon
@@ -52,14 +52,14 @@ bool addMst(monsterList_t* monster_list, int p_pos_x, int p_pos_y);
 /// @param monster_list 
 void rmvMst(monster_t* monster, monsterList_t* monster_list);
 
-/// @brief їбу що це взагалі
-/// @param M 
-/// @return якби я нахуй знав
+/// @brief output info about selected monster for the needs of tests
+/// @param M monster pointer
+/// @return string with data
 char* toStringMst(monster_t* M);
 
-/// @brief якась хуйня
-/// @param listM 
-/// @return хуйню якусь
-char* toStringLstMst(monsterList_t* listM);
+/// @brief output info about all the monsters
+/// @param monster_list 
+/// @return string with all required data
+char* toStringLstMst(monsterList_t* monster_list);
 
 #endif
