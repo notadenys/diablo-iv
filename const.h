@@ -9,4 +9,9 @@
 #define TMAP 10
 #define HPMAX 20
 
+/// @brief  finds the lengt of the integer
+/// @param  number 
+/// @return the length of given integer
+int number_lenght(int number);
+
 #endif

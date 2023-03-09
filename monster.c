@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <time.h>
+#include <string.h>
 
 /// @brief creates the vide list of monsters
 /// @return pointer to the list of monsters
@@ -22,7 +23,7 @@ monsterList_t* creationListM()
 /// @brief finds the index of particular monster in monster_list
 /// @param monster 
 /// @param monster_list 
-/// @return index of monser
+/// @return index of monster, else -1
 int index(monster_t* monster, monsterList_t* monster_list)
 {
     for(size_t i = 0; i < monster_list->nbMst; i++)
@@ -32,6 +33,7 @@ int index(monster_t* monster, monsterList_t* monster_list)
             return i;
         }
     }
+    return -1;
 }
 
 /// @brief finds if there is monster with same coords
@@ -74,20 +76,60 @@ bool addMst(monsterList_t* monster_list, int p_pos_x, int p_pos_y)
     }
 }
 
-/// @brief deletes monster from the list
+/// @brief removes monster from the list
 /// @param monster 
 /// @param monster_list 
-void deleteMst(monster_t* monster, monsterList_t* monster_list)
+void rmvMst(monster_t* monster, monsterList_t* monster_list)
 {
-    
+    int indexToRemove = index(monster, monster_list);
+    if(indexToRemove == -1)
+    {
+        printf("NoMonsterError: there is no such monster.");
+    }
+    else 
+    {
+        for(size_t i = indexToRemove; i < monster_list->nbMst; i++)
+        {
+            monster_list->listM[i] = monster_list->listM[i+1];
+        }
+        --(monster_list->nbMst);
+    }
 }
 
-/// @brief їбу що це взагалі
-/// @param M 
-/// @return якби я нахуй знав
-char* toStringMst(monster_t* M);
+/// @brief output info about selected monster for the needs of tests
+/// @param M monster pointer
+/// @return string with data
+char* toStringMst(monster_t* M)
+{
+    char *message;
+    char pos_x_char[2];
+    char pos_y_char[2];
+    char hp_char[number_lenght(M->HP)+1];
 
-/// @brief якась хуйня
-/// @param listM 
-/// @return хуйню якусь
-char* toStringLstMst(monsterList_t* listM);
+    strcpy (message, "X:");
+    strcat (message, pos_x_char);
+    strcat (message, " ");
+    strcat (message, "Y:");
+    strcat (message, pos_y_char);
+    strcat (message, " ");
+    strcat (message, "HP:");
+    strcat (message, hp_char);
+
+    return message;
+}
+
+/// @brief output info about all the monsters
+/// @param monster_list 
+/// @return string with all required data
+char* toStringLstMst(monsterList_t* monster_list)
+{
+    char *full_message;
+
+    strcpy(monster_list, toStringMst(monster_list->listM[0]));
+
+    for(size_t i = 1; i < monster_list->nbMst; i++)
+    {
+        strcat(full_message, ":\n");
+        strcat(full_message, toStringMst(monster_list->listM[i]));
+    }
+}
