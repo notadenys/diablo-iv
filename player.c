@@ -23,8 +23,7 @@ int replacement (player_t* j)
     {
         if (j->pos_y + 1 <= TMAP) 
         {
-            j->pos_y++;
-
+            ++(j->pos_y);
             return 1;
         } 
         else 
@@ -36,7 +35,7 @@ int replacement (player_t* j)
     {
         if (j->pos_y - 1 >= 0) 
         {
-            j->pos_y--;
+            --(j->pos_y);
 
             return 1;
         } 
@@ -49,7 +48,7 @@ int replacement (player_t* j)
     {
         if (j->pos_x + 1 <= TMAP) 
         {
-            j->pos_x++;
+            ++(j->pos_x);
 
             return 1;
         } 
@@ -62,7 +61,7 @@ int replacement (player_t* j)
     {
         if (j->pos_x - 1 >= 0) 
         {
-            j->pos_x--;
+            --(j->pos_x);
 
             return 1;
         }
@@ -104,6 +103,7 @@ char* toStringPl(player_t* j)
 
     message = (char *) malloc (10);
     free (message);
+
     strcpy (message, "X:");
     strcat (message, pos_x_ch);
     strcat (message, " ");
