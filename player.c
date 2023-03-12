@@ -21,58 +21,54 @@ int replacement (player_t* j)
     printf ("\nChoose direction of next move : \n");
     while ((choise  = getch()) != 'q')
     {
-        switch (choise) 
-        { 
-            case 'w':
-                if (j->pos_y + 1 <= TMAP) 
-                {
-                    j->pos_y++;
+        if (j->pos_y + 1 <= TMAP) 
+        {
+            j->pos_y++;
 
-                    return 1;
-                } 
-                else 
-                {
-                    return 0;
-                }
-                break; 
-            case 'a': 
-                if (j->pos_x - 1 >= 0) 
-                {
-                    j->pos_x--;
+            return 1;
+        } 
+        else 
+        {
+            return 0;
+        }
+    } 
+    else if (choise == 's') 
+    {
+        if (j->pos_y - 1 >= 0) 
+        {
+            j->pos_y--;
 
-                    return 1;
-                } 
-                else 
-                {
-                    return 0;
-                }
-                break;  
-            case 's': 
-                if (j->pos_y - 1 >= 0) 
-                {
-                    j->pos_y--;
+            return 1;
+        } 
+        else 
+        {
+            return 0;
+        }
+    } 
+    else if (choise == 'd') 
+    {
+        if (j->pos_x + 1 <= TMAP) 
+        {
+            j->pos_x++;
 
-                    return 1;
-                } 
-                else 
-                {
-                    return 0;
-                }
-                break; 
-            case 'd': 
-                if (j->pos_x + 1 <= TMAP) 
-                {
-                    j->pos_x++;
+            return 1;
+        } 
+        else 
+        {
+            return 0;
+        }
+    } 
+    else if (choise == 'a') 
+    {
+        if (j->pos_x - 1 >= 0) 
+        {
+            j->pos_x--;
 
-                    return 1;
-                } 
-                else 
-                {
-                    return 0;
-                }
-                break; 
-            default: 
-                break; 
+            return 1;
+        }
+         else 
+        {
+            return 0;
         }
     }
 }
@@ -95,8 +91,20 @@ player_t* createPlayer (int pos_x, int pos_y)
 /// @return     string with required data.
 char* toStringPl(player_t* j) 
 {
-    char* message = (char*) malloc(100 * sizeof(char));
-    sprintf(message, "New positionX: %d Y: %d", j->pos_x, j->pos_y);
+    char *message;
+    char pos_x_ch[2];
+    char pos_y_ch[2];
+
+    sprintf(pos_x_ch, "%d", j->pos_x);
+    sprintf(pos_y_ch, "%d", j->pos_y);
+
+    message = (char *) malloc (10);
+    free (message);
+    strcpy (message, "X:");
+    strcat (message, pos_x_ch);
+    strcat (message, " ");
+    strcat (message, "Y:");
+    strcat (message, pos_y_ch);
 
     return message;
 }
