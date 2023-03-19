@@ -1,5 +1,5 @@
 /// @file       player.h
-/// @author     Denys SHCHERBA, Ivan OSADTSIV.
+/// @author     Ivan OSADTSIV, Denys SHCHERBA.
 /// @brief      Module that defines player class, its metods and parameters.
 
 #ifndef PLAYER_H

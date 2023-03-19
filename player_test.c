@@ -1,3 +1,7 @@
+/// @file       player_test.h
+/// @author     Ivan OSADTSIV, Denys SHCHERBA
+/// @brief      Test of "player" module
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -11,7 +15,6 @@ int main (int argc, char * argv[])
 
     player_t* plyr_test = createPlayer (x_test, y_test);
     printf (toStringPl (plyr_test));
-    // output_testing(plyr_test);
     replacement (plyr_test);
     printf (toStringPl (plyr_test));
 

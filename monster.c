@@ -24,7 +24,7 @@ monsterList_t* creationListM()
 /// @param monster 
 /// @param monster_list 
 /// @return index of monster, else -1
-int index(monster_t* monster, monsterList_t* monster_list)
+int index_mst(monster_t* monster, monsterList_t* monster_list)
 {
     for(size_t i = 0; i < monster_list->nbMst; i++)
     {
@@ -81,7 +81,7 @@ bool addMst(monsterList_t* monster_list, int p_pos_x, int p_pos_y)
 /// @param monster_list 
 void rmvMst(monster_t* monster, monsterList_t* monster_list)
 {
-    int indexToRemove = index(monster, monster_list);
+    int indexToRemove = index_mst(monster, monster_list);
     if(indexToRemove == -1)
     {
         printf("NoMonsterError: there is no such monster.");
@@ -97,23 +97,13 @@ void rmvMst(monster_t* monster, monsterList_t* monster_list)
 }
 
 /// @brief output info about selected monster for the needs of tests
-/// @param M monster pointer
+/// @param m monster pointer
 /// @return string with data
-char* toStringMst(monster_t* M)
+char* toStringMst(monster_t* m)
 {
-    char *message;
-    char pos_x_char[2];
-    char pos_y_char[2];
-    char hp_char[number_lenght(M->HP)+1];
+    char* message = (char*) malloc(100 * sizeof(char));
 
-    strcpy (message, "X:");
-    strcat (message, pos_x_char);
-    strcat (message, " ");
-    strcat (message, "Y:");
-    strcat (message, pos_y_char);
-    strcat (message, " ");
-    strcat (message, "HP:");
-    strcat (message, hp_char);
+    sprintf(message, "X : %d, Y : %d, HP: %d", m->pos_x, m->pos_y, m->HP);
 
     return message;
 }
@@ -123,13 +113,18 @@ char* toStringMst(monster_t* M)
 /// @return string with all required data
 char* toStringLstMst(monsterList_t* monster_list)
 {
-    char *full_message;
-
-    strcpy(monster_list, toStringMst(monster_list->listM[0]));
-
-    for(size_t i = 1; i < monster_list->nbMst; i++)
-    {
-        strcat(full_message, ":\n");
-        strcat(full_message, toStringMst(monster_list->listM[i]));
+    char* full_message = (char*) malloc(100 * sizeof(char));
+    for(size_t i = 0; i < monster_list->nbMst; i++)
+    {   
+        sprintf(full_message, "%s\n", toStringMst(monster_list->listM[i]));
+        puts(full_message);
     }
+    return full_message;
+    // printf("%s\n", toStringMst(monster_list->listM[0]));
+    // printf("%s\n", toStringMst(monster_list->listM[1]));
+    // printf("%s\n", toStringMst(monster_list->listM[2]));
+    // printf("%s\n", toStringMst(monster_list->listM[3]));
 }
+// gcc -c monster.c -o monster.o
+// gcc monster_test.c monster.o -o main
+// ./main
