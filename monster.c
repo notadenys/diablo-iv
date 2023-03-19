@@ -120,10 +120,6 @@ char* toStringLstMst(monsterList_t* monster_list)
         puts(full_message);
     }
     return full_message;
-    // printf("%s\n", toStringMst(monster_list->listM[0]));
-    // printf("%s\n", toStringMst(monster_list->listM[1]));
-    // printf("%s\n", toStringMst(monster_list->listM[2]));
-    // printf("%s\n", toStringMst(monster_list->listM[3]));
 }
 // gcc -c monster.c -o monster.o
 // gcc monster_test.c monster.o -o main
