@@ -63,8 +63,7 @@ bool addMst(monsterList_t* monster_list, int p_pos_x, int p_pos_y)
     {
         monster_list->listM[monster_list->nbMst] = malloc(sizeof(monster_t));
         monster_list->listM[monster_list->nbMst]->HP = HPMAX;
-        
-        srand(time(0));
+
         monster_list->listM[monster_list->nbMst]->pos_x = rand() % TMAP;
         monster_list->listM[monster_list->nbMst]->pos_y = rand() % TMAP;
         while((isMstInCell(monster_list->listM[monster_list->nbMst], monster_list)) || ((monster_list->listM[monster_list->nbMst]->pos_x == p_pos_x) && (monster_list->listM[monster_list->nbMst]->pos_y == p_pos_y)));

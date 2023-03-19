@@ -11,6 +11,7 @@ int main(int argc, char * argv[])
 {
     int p_pos_x = 5;
     int p_pos_y = 5;
+    srand(time(NULL));
     monsterList_t* mst_list = creationListM();
     addMst(mst_list, p_pos_x, p_pos_y);
     addMst(mst_list, p_pos_x, p_pos_y);
