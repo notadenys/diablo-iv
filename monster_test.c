@@ -17,17 +17,17 @@ int main(int argc, char * argv[])
     //printf(toStringMst(mst_list->listM[0]));
     //printf("\n");
 
-    addMst(mst_list, p_pos_x, p_pos_y);
+    // addMst(mst_list, p_pos_x, p_pos_y);
     // // printf(index_mst(mst_list->listM[1], mst_list));
     // printf(toStringMst(mst_list->listM[1]));
     // printf("\n");
 
-    addMst(mst_list, p_pos_x, p_pos_y);
+    // addMst(mst_list, p_pos_x, p_pos_y);
     // // printf(index_mst(mst_list->listM[2], mst_list));
     // printf(toStringMst(mst_list->listM[2]));
     // printf("\n");
 
-    addMst(mst_list, p_pos_x, p_pos_y);
+    // addMst(mst_list, p_pos_x, p_pos_y);
     // // printf(index_mst(mst_list->listM[3], mst_list));
     // printf(toStringMst(mst_list->listM[3]));
     // printf("\n");
