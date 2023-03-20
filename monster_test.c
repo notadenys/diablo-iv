@@ -20,6 +20,11 @@ int main(int argc, char * argv[])
     addMst(mst_list, p_pos_x, p_pos_y);
 
     toStringLstMst(mst_list);
+
+    rmvMst(mst_list->listM[2], mst_list);
+
+    printf("-------------------\n");
+    toStringLstMst(mst_list);
     return EXIT_SUCCESS;
 }
 
