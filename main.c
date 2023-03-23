@@ -24,7 +24,7 @@ int attack(player_t* player, monster_t* monster)
         return 0;
     }
 
-    monster->HP -= rand() % (HPMAX + 1);
+    monster->HP -= rand() % (HPMAX - (HPMAX / 2) + 2);
 
     if(monster->HP > 0)
     {
