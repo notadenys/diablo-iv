@@ -11,7 +11,7 @@
 #include "output.h"
 
 
-void showing(char field[TMAP][TMAP], monsterList_t* m, player_t* j)
+void show(char field[TMAP][TMAP], monsterList_t* m, player_t* j)
 {   
     for(int k=0; k < m->nbMst; k++)
     {

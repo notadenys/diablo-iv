@@ -8,10 +8,10 @@
 #include "monster.h"
 #include "player.h"
 
-/// @brief      showing of game board 
+/// @brief      show the game board 
 /// @param      j player
 /// @param      m monster
 /// @return     game board with monsters and player
-void showing(char field[TMAP][TMAP], monsterList_t* m, player_t* j);
+void show(char field[TMAP][TMAP], monsterList_t* m, player_t* j);
 
 #endif

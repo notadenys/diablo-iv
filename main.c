@@ -67,7 +67,7 @@ void play()
     while(monster_list->nbMst > 0)
     {
         system("cls");
-        showing(field, monster_list, player);
+        show(field, monster_list, player);
         for(size_t index = 0; index < monster_list->nbMst; index++)
         {
             while(player->pos_x == monster_list->listM[index]->pos_x && player->pos_y == monster_list->listM[index]->pos_y)
