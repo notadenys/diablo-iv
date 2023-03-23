@@ -18,7 +18,6 @@ int replacement (player_t* j)
 {
     char choise;
     
-    printf ("\nChoose direction of next move : \n");
     while ((choise  = getch()) != 'q')
     {
         switch (choise) 

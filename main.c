@@ -76,11 +76,14 @@ void play()
                 {
                     printf("Monster killed!\n");
                     rmvMst(monster_list->listM[index], monster_list);
+                    printf("%d monsters left!\n", monster_list->nbMst);
+                    break;
                 }
             }
         }
         replacement(player);
     }
+    printf("The end!\n");
 }
 
 int main()
