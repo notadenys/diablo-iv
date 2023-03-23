@@ -2,6 +2,8 @@
 #include <stdio.h>
 
 #include "output.h"
+#include "player.h"
+#include "monster.h"
 
 int main(int argc, char * argv[]) {
     int x_test = 5;
@@ -14,5 +16,7 @@ int main(int argc, char * argv[]) {
 }
 
 // gcc -c output.c -o output.o
-// gcc output_test.c output.o -o main
+// gcc -c monster.c -o monster.o
+// gcc -c player.c -o player.o
+// gcc output_test.c monster.o player.o output.o -o main  
 // ./main
