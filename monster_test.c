@@ -1,4 +1,4 @@
-/// @file       player_test.h
+/// @file       monster_test.h
 /// @author     Ivan OSADTSIV, Denys SHCHERBA.
 /// @brief      Test of "monster" module
 
