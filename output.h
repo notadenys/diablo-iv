@@ -12,6 +12,6 @@
 /// @param      j player
 /// @param      m monster
 /// @return     game board with monsters and player
-void showing(int field[TMAP][TMAP], monsterList_t* m, player_t* j);
+void showing(char field[TMAP][TMAP], monsterList_t* m, player_t* j);
 
 #endif
