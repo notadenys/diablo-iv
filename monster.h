@@ -26,7 +26,7 @@ typedef struct monsterList
 
 /// @brief      creates the vide list of monsters
 /// @return     pointer to the list of monsters
-monsterList_t* creationListM();
+monsterList_t* createListM();
 
 /// @brief      finds the index of particular monster in monster_list
 /// @param      monster 

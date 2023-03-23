@@ -38,7 +38,7 @@ int attack(player_t* player, monster_t* monster)
 
 /// @brief    creates a field with size TMAP*TMAP
 /// @return   pointer to list of pointers with size TMAP*TMAP
-int** creationField()
+int** createField()
 {
     int** field = (int**)malloc(TMAP*sizeof(int*));
     for(size_t i = 0; i < TMAP; i++)
@@ -48,10 +48,32 @@ int** creationField()
     return field;
 }
 
-int main()
+void play()
 {
     srand(time(NULL));
+    int** field = createField();
+    player_t* player = createPlayer(TMAP/2, TMAP/2);
+    monsterList_t* monster_list = createListM();
 
+    // defines the number of monsters (doubles the difficulty numbers and adds 3)
+    int difficulty;
+    printf("Choose the difficulty:\n");
+    scanf("%d", &difficulty);
+    difficulty += 3 + difficulty;
+
+
+    for(size_t i = 0; i < difficulty; i++)
+    {
+        addMst(monster_list, player->pos_x, player->pos_y);
+        printf("%d.\n", i);
+    }
+
+    toStringLstMst(monster_list);
+}
+
+int main()
+{
+    play();
     return EXIT_SUCCESS;
 }
 

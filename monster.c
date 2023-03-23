@@ -13,7 +13,7 @@
 
 /// @brief creates the vide list of monsters
 /// @return pointer to the list of monsters
-monsterList_t* creationListM()
+monsterList_t* createListM()
 {
     monsterList_t* m = malloc(sizeof(monsterList_t));
     m->nbMst = 0;
@@ -62,15 +62,18 @@ bool addMst(monsterList_t* monster_list, int p_pos_x, int p_pos_y)
     if (monster_list->nbMst < TMAP*TMAP)
     {
         monster_list->listM[monster_list->nbMst] = malloc(sizeof(monster_t));
-        monster_list->listM[monster_list->nbMst]->HP = HPMAX;
+        monster_list->listM[monster_list->nbMst]->HP = rand() % (HPMAX - 9) + 10;
 
-        monster_list->listM[monster_list->nbMst]->pos_x = rand() % TMAP;
-        monster_list->listM[monster_list->nbMst]->pos_y = rand() % TMAP;
-        while((isMstInCell(monster_list->listM[monster_list->nbMst], monster_list)) || ((monster_list->listM[monster_list->nbMst]->pos_x == p_pos_x) && (monster_list->listM[monster_list->nbMst]->pos_y == p_pos_y)));
+        monster_t* monster = malloc(sizeof(monster_t));
+        monster->pos_x = rand() % TMAP;
+        monster->pos_y = rand() % TMAP;
+        while(isMstInCell(monster, monster_list) || ((monster->pos_x == p_pos_x) && (monster->pos_y == p_pos_y)))
         {
-            monster_list->listM[monster_list->nbMst]->pos_x = rand() % TMAP;
-            monster_list->listM[monster_list->nbMst]->pos_y = rand() % TMAP;
+            monster->pos_x = rand() % TMAP;
+            monster->pos_y = rand() % TMAP;
         }
+        monster_list->listM[monster_list->nbMst]->pos_x = monster->pos_x;
+        monster_list->listM[monster_list->nbMst]->pos_y = monster->pos_y;
         ++(monster_list->nbMst);
     }
 }
