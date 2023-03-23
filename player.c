@@ -23,7 +23,7 @@ int replacement (player_t* j)
     {
         switch (choise) 
         { 
-            case 'w':
+            case 'd':
                 if (j->pos_y + 1 <= TMAP) 
                 {
                     j->pos_y++;
@@ -35,7 +35,7 @@ int replacement (player_t* j)
                     return 0;
                 }
                 break; 
-            case 'a': 
+            case 'w': 
                 if (j->pos_x - 1 >= 0) 
                 {
                     j->pos_x--;
@@ -47,7 +47,7 @@ int replacement (player_t* j)
                     return 0;
                 }
                 break;  
-            case 's': 
+            case 'a': 
                 if (j->pos_y - 1 >= 0) 
                 {
                     j->pos_y--;
@@ -59,7 +59,7 @@ int replacement (player_t* j)
                     return 0;
                 }
                 break; 
-            case 'd': 
+            case 's': 
                 if (j->pos_x + 1 <= TMAP) 
                 {
                     j->pos_x++;

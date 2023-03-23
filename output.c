@@ -28,6 +28,7 @@ void show(char field[TMAP][TMAP], monsterList_t* m, player_t* j)
         }
         printf("\n");
     }
+    field [j->pos_x][j->pos_y] = ' ';
 }
 
 // gcc -c output.c -o output.o
