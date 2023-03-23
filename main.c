@@ -36,22 +36,18 @@ int attack(player_t* player, monster_t* monster)
     }
 }
 
-/// @brief    creates a field with size TMAP*TMAP
-/// @return   pointer to list of pointers with size TMAP*TMAP
-int** createField()
-{
-    int** field = (int**)malloc(TMAP*sizeof(int*));
-    for(size_t i = 0; i < TMAP; i++)
-    {
-        field[i] = malloc(TMAP*sizeof(int));
-    }
-    return field;
-}
+// /// @brief    creates a field with size TMAP*TMAP
+// /// @return   pointer to list of pointers with size TMAP*TMAP
+// char createField()
+// {
+//     char field[TMAP][TMAP] = {0};
+//     return field;
+// }
 
 void play()
 {
     srand(time(NULL));
-    int** field = createField();
+    char field[TMAP][TMAP] = {0};
     player_t* player = createPlayer(TMAP/2, TMAP/2);
     monsterList_t* monster_list = createListM();
 
@@ -68,7 +64,23 @@ void play()
         printf("%d.\n", i);
     }
 
-    toStringLstMst(monster_list);
+    while(monster_list->nbMst > 0)
+    {
+        system("cls");
+        showing(field, monster_list, player);
+        for(size_t index = 0; index < monster_list->nbMst; index++)
+        {
+            while(player->pos_x == monster_list->listM[index]->pos_x && player->pos_y == monster_list->listM[index]->pos_y)
+            {
+                if(attack(player, monster_list->listM[index]))
+                {
+                    printf("Monster killed!\n");
+                    rmvMst(monster_list->listM[index], monster_list);
+                }
+            }
+        }
+        replacement(player);
+    }
 }
 
 int main()

@@ -1,3 +1,7 @@
+/// @file       output.c
+/// @author     Ivan OSADTSIV, Denys SHCHERBA
+/// @brief      Output of game deck
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -23,7 +27,6 @@ void showing(char field[TMAP][TMAP], monsterList_t* m, player_t* j)
             
         }
         printf("\n");
-
     }
 }
 
